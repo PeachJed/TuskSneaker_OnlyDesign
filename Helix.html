@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Detail</title>
+
+        <link rel="stylesheet" href="styledetail.css">
+
+        <link rel="icon" href="image/favicon.ico">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    </head>
+
+    <body>
+
+        <header>
+            <a href="index.html" class="logo"><img src="image/logo1.png" alt=""></a>
+    
+            <ul class="navmenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Product</a></li>
+                <li><a href="index.html">Review</a></li>
+                <li><a href="index.html">Gallery</a></li>
+            </ul>
+    
+            <div class="nav-icon">
+                 <a href="#" id="searchButton"><i class='bx bx-search'></i></a>
+            <input type="text" class="searchInput" id="searchInput">
+
+            <script>
+                // get a reference to the search button and input element
+                var searchButton = document.getElementById("searchButton");
+                var searchInput = document.getElementById("searchInput");
+
+                // create an array of shoe names
+                var shoeNames = ["Codex", "Prism", "Nemo", "Lumos", "Aura", "Pixel", "Apex", "Anima", "Hope", "Intra", "Impulse", "Care", "Echo", "Helix", "Neo", "Logic"];
+
+                // add a click event listener to the search button
+                searchButton.addEventListener("click", function() {
+    
+                // get the value of the search input
+                var searchValue = searchInput.value;
+
+                // check if the search value is in the shoe names array
+                if (shoeNames.includes(searchValue)) {
+      
+                // redirect to the shoe name html
+                window.location.href = searchValue + ".html";
+                } else {
+                // show an error message
+                alert("Shoes not found");
+                }
+                });
+            </script>
+                <a href="register.html"><i class='bx bx-user' ></i></a>
+                 <a href="cart.html"><i class='bx bx-cart'></i></a>
+    
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+    
+        </header>
+        <form id="form">
+        <div class="small-container single-product">
+            <div class="row">
+
+                <div class="col-2">
+                    <img src="image/tb14.png" width="100%" height="100%" id="ProductImg">
+                </div>
+            
+            <div class="col-2">
+                <p><a href="index.html">Home</a> / 
+                   <a href="index.html#trending">Vintage</a><p>
+
+                <h1>Helix</h1>
+                    <script>
+                        localStorage.setItem("productName", "Helix");
+                    </script>    
+                <h4>$99</h4>
+
+                 <div>
+                <select id = "size-select" onchange="getSelectValue();">
+                <option>Select Size</option>
+                <option>5 US / 36 EU</option>
+                <option>5.5 US / 36.5 EU</option>
+                <option>6 US / 37 EU</option>
+                <option>6.5 US / 37.5 EU</option>
+                <option>7 US / 38 EU</option>
+                <option>7.5 US / 38.5 EU</option>
+                <option>8 US / 39 EU</option>
+                <option>8.5 US / 40 EU</option>
+                <option>9 US / 41 EU</option>
+                <option>9.5 US / 41.5 EU</option>
+                <option>10 US / 42 EU</option>
+                <option>11 US / 43 EU</option>
+                </select>
+                <br>
+
+                </div>
+
+                <div>
+                    <label for ="Quantity">Quantity :</label>
+                    <input type="number" value="1" id="myInput" oninput="saveQuantity()">
+                    <br>
+                    <br>
+                </div>
+
+                <div>
+                    <a href="cart.html" onclick="storeProductImg()">Add to Cart</a>
+                    <script>
+                        function storeProductImg(){
+                        var productImg = document.getElementById("ProductImg").src;
+                            localStorage.setItem("productImg", productImg);
+                        }
+                    </script>
+                    <br>
+                    <br>
+                </div>
+                
+                <script>
+                    const form = document.getElementById('form');
+                    const quantity = document.getElementById('quantity').value;
+                          localStorage.setItem('quantity', quantity);
+     
+                    function getSelectValue(){
+                        var selectedValue = document.getElementById("size-select").value;
+                        console.log(selectedValue);
+                        localStorage.setItem('size-select', selectedValue);
+                    }
+
+                    function saveQuantity() {
+                        var quantity = document.getElementById("myInput").value;
+                        localStorage.setItem("quantity", quantity);
+                    }
+
+                    window.onload = function() {
+                        var size = localStorage.getItem("size");
+                        var quantity = localStorage.getItem("quantity");
+
+                        if (size) {
+                            document.getElementById("size-select").value = size;
+                        }
+
+                        if (quantity) {
+                            document.getElementById("myInput").value = quantity;
+                        }
+                    }
+        
+                    form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    });
+
+                </script>
+
+                <h3>Product Details <i class="fa fa-indent"></i></h3> <br>
+                <p>Helix is a revolutionary new shoe that redefines what you expect from a sneaker. The sneaker is designed to allow you to perform your best without sacrificing style. The sneaker is made of a breathable and stretchable material that allows for easy motion and effortless fit.</p>
+                <br>
+            </div>
+
+            </div>
+        </div>
+
+            <!-- contact-section -->
+    <section class="contact">
+        <div class="contact-info">
+            <div class="first-info">
+                <img src="image/logo1.png" alt="">
+
+                <p>3245 Grant Street Longview, <br> TX united kingdom 765378</p>
+                <p>01601348732</p>
+                <p>saidulahmed3080@gmail.com</p>
+
+                <div class="social-icon">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter' ></i></a>
+                    <a href="#"><i class='bx bxl-instagram' ></i></a>
+                    <a href="#"><i class='bx bxl-youtube' ></i></a>
+                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                </div>
+            </div>
+
+            <div class="second-info">
+                <h4>Support</h4>
+                <p>Contact us</p>
+                <p>About page</p>
+                <p>Size Guide</p>
+                <p>Shopping & Resturns</p>
+                <p>Privacy</p>
+            </div>
+
+            <div class="third-info">
+                <h4>Shop</h4>
+                <p>Men's Shopping</p>
+                <p>Women's Shopping</p>
+                <p>Kids's Shopping</p>
+                <p>Furniture</p>
+                <p>Discount</p>
+            </div>
+
+            <div class="fourth-info">
+                <h4>Company</h4>
+                <p>About</p>
+                <p>Blog</p>
+                <p>Affiliate</p>
+                <p>Login</p>
+            </div>
+
+            <div class="five">
+                <h4>Subscribe</h4>
+                <p>Receive Updates, Hot Deals, Discounts Sent Straight In Your Inbox Daily</p>
+                <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Eum, Debitis.</p>
+                <p>Receive Updates, Hot Deals, Discounts Sent Straight In Your Inbox Daily</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="end-text">
+        <p>Copyright © @2022. All Rights Reserved.Designd By Saidul Islam.</p>
+    </div>
+
+    </body>
+</html>

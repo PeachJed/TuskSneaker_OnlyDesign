@@ -1,0 +1,67 @@
+body {
+    background: linear-gradient(-45deg, #515960, #000002, #5d6064);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.logo{
+    text-align: center;
+    margin-top: 35%;
+    margin-left: auto;
+    height: 200px;
+    width: 400px;
+}
+.racBack{
+    box-shadow: #515960;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 15%;
+    margin-left: auto;
+    background-color:white;
+    height: 450px;
+    width: 450px;
+}
+.input-email{
+    border-color: black;
+    border-radius: 10px;
+    margin-top: 25%;
+    width: 300px;
+    height: 50px;
+}
+.input-password {
+    border-color: black;
+    border-radius: 10px;
+    margin-top: 10%;
+    width: 300px;
+    height: 50px;
+}
+.btn-login{
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+        margin-top: 10%;
+        width: 400px;
+        height: 50px;
+
+}
+.P-regis{
+    margin-top: 5%;
+}
+/* mouse over link */
+a:hover {
+    color: red !important;
+}
